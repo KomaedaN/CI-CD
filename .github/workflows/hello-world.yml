@@ -1,0 +1,13 @@
+name: hello cicd
+
+
+on:
+  push:
+
+
+jobs: 
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: echo "Hello youhou"
