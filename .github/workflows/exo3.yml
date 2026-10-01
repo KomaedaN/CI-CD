@@ -1,4 +1,6 @@
 name: exo3test
+permissions:
+  contents: read
 
 on:
   workflow_dispatch:
@@ -17,7 +19,7 @@ jobs:
       - run: npm run build
       - uses: actions/upload-artifact@v7
         with:
-          name: build
+          name: application
           path: dist/
 
   test:
@@ -36,7 +38,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - uses: actions/download-artifact@v7
         with:
-          name: build
+          name: application
           path: dist/
       - run: npm ci
       - run: npm test
