@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-24.04
     environment: staging
     steps:
-      - run: echo ${{ vars.MON_SECRET }}
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
@@ -42,3 +41,13 @@ jobs:
           path: dist/
       - run: npm ci
       - run: npm test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v7
+        with:
+          name: application
+          path: dist/
+      - run: echo ${{ vars.MON_SECRET }}
