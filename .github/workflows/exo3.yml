@@ -1,4 +1,4 @@
-name: exo3
+name: exo3test
 
 on:
   workflow_dispatch:
@@ -6,8 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    environement: staging
+    environment: staging
     steps:
+      - run: echo ${MON_SECRET}
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
