@@ -6,7 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    environement: staging
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
